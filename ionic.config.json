@@ -1,0 +1,8 @@
+{
+  "name": "GROUP2-Mobile",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular",
+  "id": "bb5de952"
+}
