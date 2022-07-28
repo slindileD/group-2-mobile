@@ -1,0 +1,98 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>HOME</ion-title>
+    <ion-buttons slot="end" class="sign-out-button" (click)="onLogOut()">
+    <ion-icon size="large" name="log-out"   > </ion-icon>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="container">
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <ion-card (click)="onNavigateToCreateProfile()">
+            <img src="assets/icons/profile.png" />
+            <ion-card-header>
+              <ion-card-title>Profile</ion-card-title>
+            </ion-card-header>
+          </ion-card>
+        </ion-col>
+
+        <ion-col>
+          <ion-card (click)="onNavigateToChildProfile()">
+            <img src="assets/icons/child.png" />
+            <ion-card-header>
+              <ion-card-title>Child</ion-card-title>
+            </ion-card-header>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col>
+          <ion-card>
+            <img src="assets/icons/profile.png" />
+            <ion-card-header>
+              <ion-card-title>Events</ion-card-title>
+            </ion-card-header>
+          </ion-card>
+        </ion-col>
+
+        <ion-col>
+          <ion-card>
+            <img src="assets/icons/profile.png" />
+            <ion-card-header>
+              <ion-card-title>Activities</ion-card-title>
+            </ion-card-header>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+
+
+      <ion-row>
+        <ion-col>
+          <ion-card>
+            <img src="assets/icons/profile.png" />
+            <ion-card-header>
+              <ion-card-title>Blog</ion-card-title>
+            </ion-card-header>
+          </ion-card>
+        </ion-col>
+
+        <ion-col>
+          <ion-card>
+            <img src="assets/icons/profile.png" />
+            <ion-card-header>
+              <ion-card-title>Schedule</ion-card-title>
+            </ion-card-header>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+
+
+      <ion-row>
+        <ion-col>
+          <ion-card>
+            <img src="assets/icons/profile.png" />
+            <ion-card-header>
+              <ion-card-title>Communications</ion-card-title>
+            </ion-card-header>
+          </ion-card>
+        </ion-col>
+
+        <ion-col>
+          <ion-card>
+            <img src="assets/icons/profile.png" />
+            <ion-card-header>
+              <ion-card-title>Guide</ion-card-title>
+            </ion-card-header>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+
+
+    </ion-grid>
+  </div>
+</ion-content>
