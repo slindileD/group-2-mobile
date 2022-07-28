@@ -1,0 +1,29 @@
+ion-menu-button {
+  color: var(--ion-color-primary);
+}
+
+ion-title{
+  text-align: center;
+}
+
+.container {
+  display: flex;
+}
+
+.buttons-inline{
+  display: flex;
+  justify-content: space-between;
+}
+
+::ng-deep .mat-select-value {
+  color: #ffffff !important;
+}
+
+::ng-deep .mat-input-element:disabled{
+  color: grey;
+}
+
+.sign-out-button {
+  margin-right: 1rem;
+}
+

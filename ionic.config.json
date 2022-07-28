@@ -1,8 +1,5 @@
 {
-  "name": "GROUP2-Mobile",
-  "integrations": {
-    "capacitor": {}
-  },
-  "type": "angular",
-  "id": "bb5de952"
+  "name": "group2-mobile",
+  "integrations": {},
+  "type": "angular"
 }
