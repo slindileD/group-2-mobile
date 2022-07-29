@@ -1,0 +1,22 @@
+@import "/src/theme/screens.scss";
+
+.container {
+  text-align: center;
+  input {
+    width: 200px;
+    padding: 10px;
+    font-size: 15px;
+  }
+  .coolQRCode {
+    filter: drop-shadow(3px 3px 3px #999);
+    img {
+      width: 250px;
+    }
+  }
+}
+
+
+.qr-code {
+  display: flex;
+  justify-content: center;
+}

@@ -1,0 +1,141 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Add Child</ion-title>
+
+    <ion-buttons slot="end" class="sign-out-button" (click)="onLogOut()">
+      <ion-icon size="large" name="log-out"   > </ion-icon>
+      </ion-buttons>
+  </ion-toolbar>
+
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <form [formGroup]="form" (submit)="onSubmit()" *ngIf="form != null">
+    <ion-card>
+      <div class="inline-form-field">
+        <mat-form-field class="form-field" appearance="outline">
+          <mat-label> Name</mat-label>
+          <input type="text" matInput formControlName="Name" required>
+          <mat-error *ngIf="Name.touched && Name.invalid">
+            <div *ngIf="Name.errors.required">please provide name.</div>
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="inline-form-field">
+        <mat-form-field class="form-field" appearance="outline">
+          <mat-label>Surname</mat-label>
+          <input type="text" matInput formControlName="Surname" required>
+          <mat-error *ngIf="Surname.touched && Surname.invalid">
+            <div *ngIf="Surname.errors.required">please provide surname.</div>
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="inline-form-field">
+        <mat-form-field class="form-field" appearance="outline">
+          <mat-label>Gender</mat-label>
+          <mat-select formControlName="Gender">
+            <mat-option value=""> --Select option--</mat-option>
+            <mat-option value="Male"> Male </mat-option>
+            <mat-option value="Male"> Female </mat-option>
+          </mat-select>
+          <mat-error *ngIf="Gender.touched && Gender.invalid">
+            <div *ngIf="Gender.errors.required">please provide gender.</div>
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="field-container-inline">
+        <mat-form-field class="form-field" appearance="outline">
+          <mat-label>Date Of Birth</mat-label>
+          <input type="text" matInput formControlName="DateOfBirth" required>
+          <mat-error *ngIf="DateOfBirth.touched && Surname.invalid">
+            <div *ngIf="DateOfBirth.errors.required">please provide date of birth.</div>
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="inline-form-field">
+        <mat-form-field class="form-field" appearance="outline">
+          <mat-label>Identity Doc Type</mat-label>
+          <mat-select formControlName="IdentityType">
+            <mat-option value=""> --Select option--</mat-option>
+            <mat-option value="SA ID"> SA ID </mat-option>
+            <mat-option value="Passport"> Passport </mat-option>
+          </mat-select>
+          <mat-error *ngIf="IdentityType.touched && IdentityType.invalid">
+            <div *ngIf="IdentityType.errors.required">Please specify Identity doc type</div>
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="inline-form-field" *ngIf="IdentityType.value !=''">
+        <mat-form-field class="form-field" *ngIf="IdentityType.value == 'SA ID'" appearance="outline">
+          <mat-label>SA Identity Number</mat-label>
+          <input matInput formControlName="SAIDNumber" type="text" required>
+          <mat-error *ngIf="SAIDNumber.touched && SAIDNumber.invalid">
+            <div *ngIf="SAIDNumber.errors.required">SA Id Number is required.</div>
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="form-field" *ngIf="IdentityType.value == 'Passport'" appearance="outline">
+          <mat-label>Passport Number</mat-label>
+          <input matInput formControlName="PassportNumber" type="text" required>
+          <mat-error *ngIf="PassportNumber.touched && PassportNumber.invalid">
+            <div *ngIf="PassportNumber.errors.required">Passport Number is required.</div>
+          </mat-error>
+        </mat-form-field>
+      </div>
+    </ion-card>
+
+    <ion-card>
+      <div class="inline-form-field">
+        <mat-form-field class="form-field" appearance="outline">
+          <mat-label>Address Line 1</mat-label>
+          <input type="text" matInput formControlName="AddressLine1" required>
+          <mat-error *ngIf="AddressLine1.touched && AddressLine1.invalid">
+            <div *ngIf="AddressLine1.errors.required">please provide Address Line 1.</div>
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="inline-form-field">
+        <mat-form-field class="form-field" appearance="outline">
+          <mat-label>Address Line 2</mat-label>
+          <input type="text" matInput formControlName="AddressLine2">
+        </mat-form-field>
+      </div>
+
+      <div class="inline-form-field">
+        <mat-form-field class="form-field" appearance="outline">
+          <mat-label>City / Town</mat-label>
+          <input type="text" matInput formControlName="City" required>
+          <mat-error *ngIf="City.touched && City.invalid">
+            <div *ngIf="City.errors.required">please provide City or town.</div>
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="inline-form-field">
+        <mat-form-field class="form-field" appearance="outline">
+          <mat-label>Zip Code</mat-label>
+          <input type="text" matInput formControlName="ZipCode" required>
+          <mat-error *ngIf="ZipCode.touched && ZipCode.invalid">
+            <div *ngIf="ZipCode.errors.required">please provide zip code.</div>
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+    </ion-card>
+
+    <ion-card  class="buttons-inline">
+      <ion-button class="submit-button" color="secondary" type="Cancel" (click)="onNavigateToHome()">Cancel</ion-button>
+      <ion-button class="submit-button" color="primary" type="submit">Create</ion-button>
+    </ion-card>
+  </form>
+</ion-content>

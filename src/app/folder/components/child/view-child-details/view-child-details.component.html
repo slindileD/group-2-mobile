@@ -1,0 +1,54 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+
+    <ion-title>Child Details</ion-title>
+
+    <ion-buttons slot="end" class="sign-out-button" (click)="onLogOut()">
+      <ion-icon size="large" name="log-out"> </ion-icon>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" *ngIf="child !=null">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Child details</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-list>
+        <ion-list-header> Notes </ion-list-header>
+        <ion-item>
+          <ion-label>Name</ion-label>
+          <ion-note slot="end">{{child.name}}</ion-note>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Surname</ion-label>
+          <ion-note slot="end">{{child.surname}}</ion-note>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>QR Code</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content class="">
+      <section class="qr-code">
+        <ngx-qrcode [elementType]="elementType" [errorCorrectionLevel]="correctionLevel" [value]="value"
+          cssClass="coolQRCode"></ngx-qrcode>
+      </section>
+
+      <section>
+        <ion-button class="download-button" expand="block" (click)="downloadQRCode()">Download QRCode</ion-button>
+      </section>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
