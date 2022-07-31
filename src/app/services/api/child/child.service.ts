@@ -23,7 +23,7 @@ export class ChildService {
       { observe: 'events', reportProgress: true, headers: this.headers });
   }
 
-  getRecentByUserName() {
+  getByParentEmailAddress() {
     return this.http.get(
       this.endpointBase.concat("Child/ByParentEmail/" + this._authService.currentUser.UserName),
       { reportProgress: true, observe: 'events', headers: this.headers }
