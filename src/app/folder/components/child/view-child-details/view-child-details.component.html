@@ -13,31 +13,10 @@
 </ion-header>
 
 <ion-content [fullscreen]="true" *ngIf="child !=null">
-  <ion-card>
-    <ion-card-header>
-      <ion-card-title>Child details</ion-card-title>
-    </ion-card-header>
-
-    <ion-card-content>
-      <ion-list>
-        <ion-list-header> Notes </ion-list-header>
-        <ion-item>
-          <ion-label>Name</ion-label>
-          <ion-note slot="end">{{child.name}}</ion-note>
-        </ion-item>
-
-        <ion-item>
-          <ion-label>Surname</ion-label>
-          <ion-note slot="end">{{child.surname}}</ion-note>
-        </ion-item>
-      </ion-list>
-    </ion-card-content>
-
-  </ion-card>
 
   <ion-card>
     <ion-card-header>
-      <ion-card-title>QR Code</ion-card-title>
+      <ion-card-title>Attendance QR Code</ion-card-title>
     </ion-card-header>
 
     <ion-card-content class="">
@@ -51,4 +30,70 @@
       </section>
     </ion-card-content>
   </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Personal details</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list>
+        <ion-item>
+          <ion-label>Name</ion-label>
+          <ion-note slot="end">{{child.name}}</ion-note>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Surname</ion-label>
+          <ion-note slot="end">{{child.surname}}</ion-note>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Gender</ion-label>
+          <ion-note slot="end">{{child.gender}}</ion-note>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Date of birth</ion-label>
+          <ion-note slot="end">{{child.dateOfBirth}}</ion-note>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Address details</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-list>
+        <ion-item>
+          <ion-label>Line 1</ion-label>
+          <ion-note slot="end">{{child.addressLine1}}</ion-note>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Line 2</ion-label>
+          <ion-note slot="end">{{child.addressLine2}}</ion-note>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>City/Town</ion-label>
+          <ion-note slot="end">{{child.city}}</ion-note>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Postal Code</ion-label>
+          <ion-note slot="end">{{child.postalCode}}</ion-note>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card class="buttons-inline">
+    <ion-button class="submit-button" color="secondary" type="Cancel" (click)="onNavigateToHome()">Go to Home
+    </ion-button>
+    <ion-button class="submit-button" color="primary" type="submit" (click)="onNavigateToEdit()">Edit</ion-button>
+  </ion-card>
+
 </ion-content>
