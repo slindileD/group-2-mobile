@@ -16,7 +16,7 @@ export class ViewChildDetailsComponent implements OnInit {
   elementType = NgxQrcodeElementTypes.URL;
   correctionLevel = NgxQrcodeErrorCorrectionLevels.HIGH;
 
-  urlSuffix = "https://localhost:4200/";
+  urlSuffix = "http://localhost:4200/";
   routingSuffix = 'capture-attendance/';
   captureAttendanceLink = this.urlSuffix.concat(this.routingSuffix);
 
@@ -36,7 +36,7 @@ export class ViewChildDetailsComponent implements OnInit {
   }
 
   private _getChildFromServer() {
-    this._childService.getRecentByUserName()
+    this._childService.getByParentEmailAddress()
       .subscribe({
         next: (event) => {
           if (event.type === HttpEventType.Sent) {
