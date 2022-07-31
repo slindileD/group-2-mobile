@@ -13,6 +13,9 @@ import { CreateProfileComponent } from './components/profile/create-profile/crea
 import { MaterialModule } from 'src/shared/modules/material.module';
 import { AddChildComponent } from './components/child/add-child/add-child.component';
 import { ViewChildDetailsComponent } from './components/child/view-child-details/view-child-details.component';
+import { UpdateProfileComponent } from './components/profile/update-profile/update-profile.component';
+import { ViewProfileComponent } from './components/profile/view-profile/view-profile.component';
+import { UpdateChildComponent } from './components/child/update-child/update-child.component';
 
 @NgModule({
   imports: [
@@ -28,7 +31,10 @@ import { ViewChildDetailsComponent } from './components/child/view-child-details
     FolderPage,
     CreateProfileComponent,
     AddChildComponent,
-    ViewChildDetailsComponent
+    ViewChildDetailsComponent,
+    UpdateProfileComponent,
+    ViewProfileComponent,
+    UpdateChildComponent
   ]
 })
 export class FolderPageModule { }
