@@ -1,0 +1,100 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+
+    <ion-title>Profile Details</ion-title>
+
+    <ion-buttons slot="end" class="sign-out-button" (click)="onLogOut()">
+      <ion-icon size="large" name="log-out"> </ion-icon>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content [fullscreen]="true" *ngIf="profile !=null">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Personal details</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-list>
+        <ion-item>
+          <ion-label>Title</ion-label>
+          <ion-note slot="end">{{profile.title}}</ion-note>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Name</ion-label>
+          <ion-note slot="end">{{profile.name}}</ion-note>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Surname</ion-label>
+          <ion-note slot="end">{{profile.surname}}</ion-note>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Identity Number</ion-label>
+          <ion-note slot="end">{{profile.passportOrSAIDNumber}}</ion-note>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Contact Number</ion-label>
+          <ion-note slot="end">{{profile.contactNumber}}</ion-note>
+        </ion-item>
+
+
+        <ion-item>
+          <ion-label>Email</ion-label>
+          <ion-note slot="end">{{profile.email}}</ion-note>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Relationship</ion-label>
+          <ion-note slot="end">{{profile.parentRelationship}}</ion-note>
+        </ion-item>
+
+
+      </ion-list>
+    </ion-card-content>
+
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Address details</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-list>
+        <ion-item>
+          <ion-label>Line 1</ion-label>
+          <ion-note slot="end">{{profile.addressLine1}}</ion-note>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Line 2</ion-label>
+          <ion-note slot="end">{{profile.addressLine2}}</ion-note>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>City/Town</ion-label>
+          <ion-note slot="end">{{profile.city}}</ion-note>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Postal Code</ion-label>
+          <ion-note slot="end">{{profile.zipCode}}</ion-note>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card class="buttons-inline">
+    <ion-button class="submit-button" color="secondary" type="Cancel" (click)="onNavigateToHome()">Go to Home</ion-button>
+    <ion-button class="submit-button" color="primary" type="submit" (click)="onNavigateToEdit()">Edit</ion-button>
+  </ion-card>
+</ion-content>
