@@ -23,6 +23,12 @@ export class ChildService {
       { observe: 'events', reportProgress: true, headers: this.headers });
   }
 
+  updateByParent(payload: any) {
+    return this.http.post(
+      this.endpointBase.concat("Child/EditByParent"), payload,
+      { observe: 'events', reportProgress: true, headers: this.headers });
+  }
+
   getByParentEmailAddress() {
     return this.http.get(
       this.endpointBase.concat("Child/ByParentEmail/" + this._authService.currentUser.UserName),

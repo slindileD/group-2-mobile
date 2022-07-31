@@ -1,5 +1,6 @@
 import { HttpEventType } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { NgxQrcodeElementTypes, NgxQrcodeErrorCorrectionLevels } from '@techiediaries/ngx-qrcode';
 import { AuthService } from 'src/app/services/api/Auth/auth.service';
 import { ChildService } from 'src/app/services/api/child/child.service';
@@ -25,7 +26,8 @@ export class ViewChildDetailsComponent implements OnInit {
   child: Child;
   constructor(
     private _childService: ChildService,
-    private _authService:AuthService
+    private _authService:AuthService,
+    private _router:Router
   ) {
 
 
@@ -57,6 +59,14 @@ export class ViewChildDetailsComponent implements OnInit {
 
   onLogOut() {
     this._authService.signOut();
+  }
+
+  onNavigateToHome() {
+    this._router.navigate(['home'])
+  }
+
+  onNavigateToEdit() {
+    this._router.navigate(['folder', 'update-child'])
   }
 
 

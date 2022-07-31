@@ -18,11 +18,28 @@ export class HomeComponent implements OnInit {
 
 
   onNavigateToCreateProfile() {
-    this._router.navigate(['folder/create-profile']);
+    if (this._authService.currentUser.HasProfile.toLowerCase() == 'Yes'.toLowerCase()) {
+      this._router.navigate(['folder/view-profile']); //navigate to view profile if already created
+    }
+    else {
+      this._router.navigate(['folder/create-profile']); //create profile if not yet created
+    }
+
   }
 
   onNavigateToChildProfile() {
-    this._router.navigate(['folder/view-child-details']);
+    if (this._authService.currentUser.HasProfile.toLowerCase() == 'Yes'.toLowerCase()) {
+
+      if (this._authService.currentUser.HasChild.toLowerCase() == 'Yes'.toLowerCase()) {
+        this._router.navigate(['folder/view-child-details']);
+      }
+      else {
+        this._router.navigate(['folder/add-child']); //add child if not yet addded
+      }
+    }
+    else {
+      this._router.navigate(['folder/create-profile']); //create profile if not yet created
+    }
   }
 
   onLogOut() {
