@@ -1,0 +1,42 @@
+<ion-content>
+  <ion-content [fullscreen]="true">
+    <ion-header collapse="condense">
+      <ion-toolbar>
+        <ion-title size="large">Hatfield Montessori Preshool</ion-title>
+      </ion-toolbar>
+    </ion-header>
+
+    <!-- <ion-card class="logo-card">
+      <ion-card-header> -->
+        <img src="assets/logo.png" class="logo" alt="Hatfield Montessori Preshool">
+      <!-- </ion-card-header>
+    </ion-card> -->
+
+    <ion-card>
+      <form [formGroup]="form" (submit)="onSubmit()" *ngIf="form != null">
+        <ion-item>
+          <ion-label position="stacked">Username</ion-label>
+          <ion-input formControlName="Username" type="text"></ion-input>
+        </ion-item>
+
+        <span class="error ion-padding form-input-error" *ngIf="submitted && errorCtr.Username.errors?.required">
+          Username is required.
+        </span>
+
+        <ion-item>
+          <ion-label position="stacked">Password</ion-label>
+          <ion-input type="password" formControlName="Password"></ion-input>
+        </ion-item>
+
+        <span class="error ion-padding form-input-error" *ngIf="submitted && errorCtr.Password.errors?.required">
+          Password is required.
+        </span>
+
+        <section class="full-width">
+          <ion-button expand="full" color="secondary" type="submit">Log In</ion-button>
+          <header>Forgot Password</header>
+        </section>
+      </form>
+
+    </ion-card>
+  </ion-content>
