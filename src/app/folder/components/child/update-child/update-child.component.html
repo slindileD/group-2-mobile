@@ -1,0 +1,115 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Edit Child</ion-title>
+
+    <ion-buttons slot="end" class="sign-out-button" (click)="onLogOut()">
+      <ion-icon size="large" name="log-out"> </ion-icon>
+    </ion-buttons>
+  </ion-toolbar>
+
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Child details</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content *ngIf="child!= null">
+      <ion-list>
+        <ion-item>
+          <ion-label>Identity Number</ion-label>
+          <ion-note slot="end">{{child.passportOrSAIDNumber}}</ion-note>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Date of birth</ion-label>
+          <ion-note slot="end">{{child.dateOfBirth}}</ion-note>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Gender</ion-label>
+          <ion-note slot="end">{{child.gender}}</ion-note>
+        </ion-item>
+
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+
+  <form [formGroup]="form" *ngIf="form != null">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Updatable details</ion-card-title>
+      </ion-card-header>
+
+      <ion-card-content>
+        <div class="inline-form-field">
+          <mat-form-field class="form-field" appearance="outline">
+            <mat-label> Name</mat-label>
+            <input type="text" matInput formControlName="Name" required>
+            <mat-error *ngIf="Name.touched && Name.invalid">
+              <div *ngIf="Name.errors.required">please provide name.</div>
+            </mat-error>
+          </mat-form-field>
+        </div>
+
+        <div class="inline-form-field">
+          <mat-form-field class="form-field" appearance="outline">
+            <mat-label>Surname</mat-label>
+            <input type="text" matInput formControlName="Surname" required>
+            <mat-error *ngIf="Surname.touched && Surname.invalid">
+              <div *ngIf="Surname.errors.required">please provide surname.</div>
+            </mat-error>
+          </mat-form-field>
+        </div>
+
+        <div class="inline-form-field">
+          <mat-form-field class="form-field" appearance="outline">
+            <mat-label>Address Line 1</mat-label>
+            <input type="text" matInput formControlName="AddressLine1" required>
+            <mat-error *ngIf="AddressLine1.touched && AddressLine1.invalid">
+              <div *ngIf="AddressLine1.errors.required">please provide Address Line 1.</div>
+            </mat-error>
+          </mat-form-field>
+        </div>
+
+        <div class="inline-form-field">
+          <mat-form-field class="form-field" appearance="outline">
+            <mat-label>Address Line 2</mat-label>
+            <input type="text" matInput formControlName="AddressLine2">
+          </mat-form-field>
+        </div>
+
+        <div class="inline-form-field">
+          <mat-form-field class="form-field" appearance="outline">
+            <mat-label>City / Town</mat-label>
+            <input type="text" matInput formControlName="City" required>
+            <mat-error *ngIf="City.touched && City.invalid">
+              <div *ngIf="City.errors.required">please provide City or town.</div>
+            </mat-error>
+          </mat-form-field>
+        </div>
+
+        <div class="inline-form-field">
+          <mat-form-field class="form-field" appearance="outline">
+            <mat-label>Zip Code</mat-label>
+            <input type="text" matInput formControlName="ZipCode" required>
+            <mat-error *ngIf="ZipCode.touched && ZipCode.invalid">
+              <div *ngIf="ZipCode.errors.required">please provide zip code.</div>
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </ion-card-content>
+
+    </ion-card>
+
+    <ion-card class="buttons-inline">
+      <ion-button class="submit-button" color="secondary" type="Cancel" (click)="onNavigateToHome()">Cancel</ion-button>
+      <ion-button class="submit-button" color="primary" type="submit" (click)="onSubmit()">Edit</ion-button>
+    </ion-card>
+  </form>
+</ion-content>
