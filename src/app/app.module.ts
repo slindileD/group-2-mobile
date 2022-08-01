@@ -13,6 +13,7 @@ import { JwtModule } from '@auth0/angular-jwt';
 import { environment } from 'src/environments/environment';
 import { HomeComponent } from './components/home/home.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MaterialModule } from 'src/shared/modules/material.module';
 
 
 export function tokenGetter() {
@@ -30,6 +31,7 @@ export function tokenGetter() {
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    MaterialModule,
     JwtModule.forRoot({
       config: {
         tokenGetter: tokenGetter,

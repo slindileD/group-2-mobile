@@ -9,6 +9,9 @@ import { CurrentUser } from '../../types/auth.types';
 })
 export class AuthService {
   endpointBase = environment.endpointBase;
+  headers = {
+    Authorization: `Bearer ${localStorage.getItem('token')}`
+  }
 
   constructor(private http: HttpClient) {
   }
@@ -24,6 +27,12 @@ export class AuthService {
   signIn(payload) {
     return this.http
       .post(this.endpointBase.concat("Account/LogIn"), payload, { reportProgress: true, observe: 'events' });
+  }
+
+  refreshToken() {
+    return this.http.
+      get(this.endpointBase.concat("Account/RefreshToken"),
+        { reportProgress: true, observe: 'events', headers: this.headers });
   }
 
 
