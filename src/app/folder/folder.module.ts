@@ -16,6 +16,9 @@ import { ViewChildDetailsComponent } from './components/child/view-child-details
 import { UpdateProfileComponent } from './components/profile/update-profile/update-profile.component';
 import { ViewProfileComponent } from './components/profile/view-profile/view-profile.component';
 import { UpdateChildComponent } from './components/child/update-child/update-child.component';
+import { ManageBookingsComponent } from './components/bookings/manage-bookings/manage-bookings.component';
+import { MakeBookingComponent } from './components/bookings/make-booking/make-booking.component';
+import { ListBookingsComponent } from './components/bookings/list-bookings/list-bookings.component';
 
 @NgModule({
   imports: [
@@ -34,7 +37,10 @@ import { UpdateChildComponent } from './components/child/update-child/update-chi
     ViewChildDetailsComponent,
     UpdateProfileComponent,
     ViewProfileComponent,
-    UpdateChildComponent
+    UpdateChildComponent,
+    ManageBookingsComponent,
+    MakeBookingComponent,
+    ListBookingsComponent
   ]
 })
 export class FolderPageModule { }

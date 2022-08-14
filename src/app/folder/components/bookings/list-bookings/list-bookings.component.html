@@ -1,0 +1,60 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>My Bookings</ion-title>
+
+    <ion-buttons slot="end" class="sign-out-button" (click)="onLogOut()">
+      <ion-icon size="large" name="log-out"> </ion-icon>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <ion-card *ngIf="bookings.length > 0">
+    <ion-card-header>
+      <ion-card-title>Bookings</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-grid>
+        <ion-row *ngFor="let booking of bookings">
+          <ion-row>
+            <ion-col>
+              <div>{{booking.name}}</div>
+            </ion-col>
+          </ion-row>
+
+          <ion-row class="booking-info-below">
+            <ion-col>
+              <div>{{booking.slotDay}}</div>
+            </ion-col>
+            <ion-col>
+              <div>{{booking.slotStartTime}} - {{booking.slotEndTime}}</div>
+            </ion-col>
+            <ion-col>
+              <div>
+                <ion-icon class="delete-icon" name="trash" (click)="onDeleteBooking(booking)"></ion-icon>
+              </div>
+            </ion-col>
+          </ion-row>
+
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+
+  </ion-card>
+
+  <ion-card *ngIf="bookings.length == 0">
+    <ion-card-header>
+      <ion-card-title>Not bookings made</ion-card-title>
+    </ion-card-header>
+  </ion-card>
+
+  <ion-card class="buttons-inline">
+    <ion-button class="submit-button" color="secondary" type="Cancel" (click)="onNavigateToHome()">Go to Home
+    </ion-button>
+  </ion-card>
+</ion-content>

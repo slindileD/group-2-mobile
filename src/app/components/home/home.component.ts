@@ -18,7 +18,9 @@ export class HomeComponent implements OnInit {
     private _snackBar: MatSnackBar
   ) { }
 
-  ngOnInit() { }
+  ngOnInit() {
+    this._getRefreshedToken();
+  }
 
   private _getRefreshedToken() {
     this.tokenRefreshed = false;
@@ -59,6 +61,10 @@ export class HomeComponent implements OnInit {
       this._router.navigate(['folder/add-child']); //add child if not yet addded
     }
 
+  }
+
+  onNavigateToManageBookings() {
+    this._router.navigate(['folder/manage-bookings']);
   }
 
   private _openSnackBar(message: string, action: string, _duration: number) {

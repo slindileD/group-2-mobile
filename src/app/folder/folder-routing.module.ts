@@ -1,5 +1,8 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { ListBookingsComponent } from './components/bookings/list-bookings/list-bookings.component';
+import { MakeBookingComponent } from './components/bookings/make-booking/make-booking.component';
+import { ManageBookingsComponent } from './components/bookings/manage-bookings/manage-bookings.component';
 import { AddChildComponent } from './components/child/add-child/add-child.component';
 import { UpdateChildComponent } from './components/child/update-child/update-child.component';
 import { ViewChildDetailsComponent } from './components/child/view-child-details/view-child-details.component';
@@ -37,6 +40,18 @@ const routes: Routes = [
   {
     path: 'view-child-details',
     component: ViewChildDetailsComponent
+  },
+  {
+    path: 'manage-bookings',
+    component: ManageBookingsComponent
+  },
+  {
+    path: 'make-new-booking',
+    component: MakeBookingComponent
+  },
+  {
+    path: 'list-bookings',
+    component: ListBookingsComponent
   }
 ];
 
