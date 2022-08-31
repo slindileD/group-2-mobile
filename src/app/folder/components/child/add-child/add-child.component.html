@@ -21,7 +21,9 @@
           <mat-label> Name</mat-label>
           <input type="text" matInput formControlName="Name" required>
           <mat-error *ngIf="Name.touched && Name.invalid">
-            <div *ngIf="Name.errors.required">please provide name.</div>
+            <div *ngIf="Name.errors.required">please provide name</div>
+            <div *ngIf="Name.errors.pattern">name is invalid</div>
+            <div *ngIf="Name.errors.maxlength">50 max characters allowed</div>
           </mat-error>
         </mat-form-field>
       </div>
@@ -31,7 +33,9 @@
           <mat-label>Surname</mat-label>
           <input type="text" matInput formControlName="Surname" required>
           <mat-error *ngIf="Surname.touched && Surname.invalid">
-            <div *ngIf="Surname.errors.required">please provide surname.</div>
+            <div *ngIf="Surname.errors.required">please provide your surname.</div>
+            <div *ngIf="Surname.errors.pattern">surname is invalid.</div>
+            <div *ngIf="Surname.errors.maxlength">50 max characters allowed</div>
           </mat-error>
         </mat-form-field>
       </div>
@@ -53,7 +57,7 @@
       <div class="field-container-inline">
         <mat-form-field class="form-field" appearance="outline">
           <mat-label>Date Of Birth</mat-label>
-          <input type="text" matInput formControlName="DateOfBirth" required>
+          <input type="text" [max]="maxDate" matInput formControlName="DateOfBirth" required>
           <mat-error *ngIf="DateOfBirth.touched && Surname.invalid">
             <div *ngIf="DateOfBirth.errors.required">please provide date of birth.</div>
           </mat-error>

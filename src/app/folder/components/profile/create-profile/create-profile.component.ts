@@ -6,7 +6,7 @@ import { ProfileService } from 'src/app/services/api/profile/profile.service';
 import { HttpEventType } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/api/Auth/auth.service';
-
+import { IdNumberValidator } from 'src/app/validators/idnumber.validator'
 
 @Component({
   selector: 'app-create-profile',
@@ -106,19 +106,19 @@ export class CreateProfileComponent implements OnInit {
 
   private buildForm(formFb: FormBuilder) {
     this.form = formFb.group({
-      Name: ['', [Validators.required]],
-      Surname: ['', [Validators.required]],
-      ContactNumber: ['', [Validators.required]],
+      Name: ['', [Validators.required, Validators.maxLength(50), Validators.pattern('[a-zA-Z ]*')]],
+      Surname: ['', [Validators.required, Validators.maxLength(50), Validators.pattern('[a-zA-Z ]*')]],
+      ContactNumber: ['', [Validators.required, Validators.pattern("^((\\+27-?)|0)?[0-9]{9}$")]],
       IdentityType: ['', [Validators.required]],
-      SAIDNumber: ['', [Validators.required]],
+      SAIDNumber: ['', [Validators.required, IdNumberValidator.saIdValidator]],
       PassportNumber: ['', [Validators.required]],
-      Title: ['', [Validators.required]],
+      Title: ['', [Validators.required, Validators.maxLength(10), Validators.pattern('[a-zA-Z ]*')]],
       ParentRelationship: ['', [Validators.required]],
 
-      AddressLine1: ['', [Validators.required]],
-      AddressLine2: [''],
-      City: ['', [Validators.required]],
-      ZipCode: ['', [Validators.required]],
+      AddressLine1: ['', [Validators.required, Validators.maxLength(50)]],
+      AddressLine2: ['', [Validators.required, Validators.maxLength(50)]],
+      City: ['', [Validators.required, Validators.maxLength(50)]],
+      ZipCode: ['', [Validators.required, Validators.pattern('^[0-9]{4}$')]],
     });
   }
 

@@ -137,7 +137,7 @@ export class AddChildComponent implements OnInit {
       Name: [this.application.childName, [Validators.required, Validators.maxLength(50), Validators.pattern('[a-zA-Z ]*')]],
       Surname: [this.application.childSurname, [Validators.required, Validators.maxLength(50), Validators.pattern('[a-zA-Z ]*')]],
       IdentityType: ['', [Validators.required]],
-      SAIDNumber: ['', [Validators.required, Validators.pattern, IdNumberValidator.saIdValidator]],
+      SAIDNumber: ['', [Validators.required, IdNumberValidator.saIdValidator]],
       PassportNumber: ['', [Validators.required]],
       DateOfBirth: [this.application.childDateOfBirth, [Validators.required]],
       Gender: ['', [Validators.required]],
