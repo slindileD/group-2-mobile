@@ -79,7 +79,7 @@
           <mat-label>SA Identity Number</mat-label>
           <input matInput formControlName="SAIDNumber" type="text" required>
           <mat-error *ngIf="SAIDNumber.touched && SAIDNumber.invalid">
-            <div *ngIf="SAIDNumber.errors.required">SA Id Number is required.</div>
+            <div *ngIf="SAIDNumber">ID number is invalid</div>
           </mat-error>
         </mat-form-field>
 
@@ -99,7 +99,8 @@
           <mat-label>Address Line 1</mat-label>
           <input type="text" matInput formControlName="AddressLine1" required>
           <mat-error *ngIf="AddressLine1.touched && AddressLine1.invalid">
-            <div *ngIf="AddressLine1.errors.required">please provide Address Line 1.</div>
+            <div *ngIf="AddressLine1.errors.required">Address line 1 required</div>
+            <div *ngIf="AddressLine1.errors.maxlength">50 max characters allowed</div>
           </mat-error>
         </mat-form-field>
       </div>
@@ -108,6 +109,10 @@
         <mat-form-field class="form-field" appearance="outline">
           <mat-label>Address Line 2</mat-label>
           <input type="text" matInput formControlName="AddressLine2">
+          <mat-error *ngIf="AddressLine2.touched && AddressLine2.invalid">
+            <div *ngIf="AddressLine2.errors.required">Address line 2 required</div>
+            <div *ngIf="AddressLine2.errors.maxlength">50 max characters allowed</div>
+          </mat-error>
         </mat-form-field>
       </div>
 
@@ -116,7 +121,8 @@
           <mat-label>City / Town</mat-label>
           <input type="text" matInput formControlName="City" required>
           <mat-error *ngIf="City.touched && City.invalid">
-            <div *ngIf="City.errors.required">please provide City or town.</div>
+            <div *ngIf="City.errors.required">Please provide City or town.</div>
+            <div *ngIf="City.errors.maxlength">50 max characters allowed</div>
           </mat-error>
         </mat-form-field>
       </div>
@@ -127,6 +133,7 @@
           <input type="text" matInput formControlName="ZipCode" required>
           <mat-error *ngIf="ZipCode.touched && ZipCode.invalid">
             <div *ngIf="ZipCode.errors.required">please provide zip code.</div>
+            <div *ngIf="ZipCode.errors.pattern">Zip code must have 4 numbers</div>
           </mat-error>
         </mat-form-field>
       </div>

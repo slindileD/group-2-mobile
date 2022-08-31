@@ -8,11 +8,12 @@
 
     <!-- <ion-card class="logo-card">
       <ion-card-header> -->
-        <img src="assets/logo.png" class="logo" alt="Hatfield Montessori Preshool">
+        <img src="assets/logo.png" class="logo" style="margin-top: 5em;" alt="Hatfield Montessori Preshool">
       <!-- </ion-card-header>
     </ion-card> -->
-
-    <ion-card>
+    <h4 style="margin-top:60px;margin-bottom:10px;font-size: 2em;font-family:Arial, Helvetica, sans-serif;text-align: center;">Login</h4>
+    <br/>
+    <ion-card >
       <form [formGroup]="form" (submit)="onSubmit()" *ngIf="form != null">
         <ion-item>
           <ion-label position="stacked">Username</ion-label>

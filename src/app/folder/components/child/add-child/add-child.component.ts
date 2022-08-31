@@ -1,6 +1,6 @@
 import { HttpEventType } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators, ValidationErrors } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, ValidationErrors, FormControl } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
@@ -9,6 +9,7 @@ import { AuthService } from 'src/app/services/api/Auth/auth.service';
 import { ChildService } from 'src/app/services/api/child/child.service';
 import { ProfileService } from 'src/app/services/api/profile/profile.service';
 import { Application } from 'src/app/services/types/application.types';
+import { IdNumberValidator } from 'src/app/validators/idnumber.validator'
 
 @Component({
   selector: 'app-add-child',
@@ -133,18 +134,18 @@ export class AddChildComponent implements OnInit {
 
   private buildForm(formFb: FormBuilder) {
     this.form = formFb.group({
-      Name: [this.application.childName, [Validators.required]],
-      Surname: [this.application.childSurname, [Validators.required]],
+      Name: [this.application.childName, [Validators.required, Validators.maxLength(50), Validators.pattern('[a-zA-Z ]*')]],
+      Surname: [this.application.childSurname, [Validators.required, Validators.maxLength(50), Validators.pattern('[a-zA-Z ]*')]],
       IdentityType: ['', [Validators.required]],
-      SAIDNumber: ['', [Validators.required]],
+      SAIDNumber: ['', [Validators.required, Validators.pattern, IdNumberValidator.saIdValidator]],
       PassportNumber: ['', [Validators.required]],
       DateOfBirth: [this.application.childDateOfBirth, [Validators.required]],
       Gender: ['', [Validators.required]],
 
-      AddressLine1: ['', [Validators.required]],
-      AddressLine2: [''],
-      City: ['', [Validators.required]],
-      ZipCode: ['', [Validators.required]],
+      AddressLine1: ['', [Validators.required, Validators.maxLength(50)]],
+      AddressLine2: ['', [Validators.required, Validators.maxLength(50)]],
+      City: ['', [Validators.required, Validators.maxLength(50)]],
+      ZipCode: ['', [Validators.required, Validators.pattern('^[0-9]{4}$')]],
     });
 
     //Disable fields that contain data from db
@@ -177,5 +178,16 @@ export class AddChildComponent implements OnInit {
         });
       }
     });
+  }
+
+  //TODO: move this method out of here
+  nonEmptyName (control : FormControl) : ValidationErrors|null {
+    if (control.value.trim() == "") {
+      let resp = {
+        'required' : true //TODO: stop overloading this validation error name
+      };
+      return resp;
+    }
+    return null;
   }
 }
