@@ -131,17 +131,17 @@ export class UpdateProfileComponent implements OnInit {
 
   private buildForm(formFb: FormBuilder) {
     this.form = formFb.group({
-      Name: [this.profile.name, [Validators.required]],
-      Surname: [this.profile.surname, [Validators.required]],
-      ContactNumber: [this.profile.contactNumber, [Validators.required]],
+      Name: [this.profile.name, [Validators.required, Validators.maxLength(50), Validators.pattern('[a-zA-Z ]*')]],
+      Surname: [this.profile.surname, [Validators.required, Validators.maxLength(50), Validators.pattern('[a-zA-Z ]*')]],
+      ContactNumber: [this.profile.contactNumber, [Validators.required, Validators.pattern("^((\\+27-?)|0)?[0-9]{9}$")]],
       // IdentityNumber: [this.profile.passportOrSAIDNumber, [Validators.required]],
       Title: [this.profile.title, [Validators.required]],
       // ParentRelationship: [this.profile.parentRelationship, [Validators.required]],
 
-      AddressLine1: [this.profile.addressLine1, [Validators.required]],
-      AddressLine2: [this.profile.addressLine2, [Validators.required]],
-      City: [this.profile.city, [Validators.required]],
-      ZipCode: [this.profile.zipCode, [Validators.required]],
+      AddressLine1: [this.profile.addressLine1, [Validators.required, Validators.maxLength(50)]],
+      AddressLine2: [this.profile.addressLine2, [Validators.maxLength(50)]],
+      City: [this.profile.city, [Validators.required, Validators.maxLength(50)]],
+      ZipCode: [this.profile.zipCode, [Validators.required, Validators.pattern('^[0-9]{4}$')]],
     });
 
     //Disable fields not supposed to be updated by profile holderk

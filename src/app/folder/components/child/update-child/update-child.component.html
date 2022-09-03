@@ -54,7 +54,7 @@
             <mat-error *ngIf="Name.touched && Name.invalid">
               <div *ngIf="Name.errors.required">please provide name</div>
               <div *ngIf="Name.errors.pattern">name is invalid</div>
-              <div *ngIf="Name.errors.maxlength">50 max characters allowed</div>
+              <div *ngIf="Name.errors.maxlength">50 maximum characters allowed</div>
             </mat-error>
           </mat-form-field>
         </div>
@@ -66,7 +66,7 @@
             <mat-error *ngIf="Surname.touched && Surname.invalid">
               <div *ngIf="Surname.errors.required">please provide surname</div>
               <div *ngIf="Surname.errors.pattern">surname is invalid</div>
-              <div *ngIf="Surname.errors.maxlength">50 max characters allowed</div>
+              <div *ngIf="Surname.errors.maxlength">50 maximum characters allowed</div>
             </mat-error>
           </mat-form-field>
         </div>
@@ -77,7 +77,7 @@
             <input type="text" matInput formControlName="AddressLine1" required>
             <mat-error *ngIf="AddressLine1.touched && AddressLine1.invalid">
               <div *ngIf="AddressLine1.errors.required">please provide address line 1</div>
-              <div *ngIf="AddressLine1.errors.maxlength">50 max characters allowed</div>
+              <div *ngIf="AddressLine1.errors.maxlength">50 maximum characters allowed</div>
             </mat-error>
           </mat-form-field>
         </div>
@@ -88,7 +88,7 @@
             <input type="text" matInput formControlName="AddressLine2">
             <mat-error *ngIf="AddressLine2.touched && AddressLine2.invalid">
               <div *ngIf="AddressLine2.errors.required">please provide address line 2</div>
-              <div *ngIf="AddressLine2.errors.maxlength">50 max characters allowed</div>
+              <div *ngIf="AddressLine2.errors.maxlength">50 maximum characters allowed</div>
             </mat-error>
           </mat-form-field>
         </div>
@@ -99,7 +99,7 @@
             <input type="text" matInput formControlName="City" required>
             <mat-error *ngIf="City.touched && City.invalid">
               <div *ngIf="City.errors.required">please provide city or town</div>
-              <div *ngIf="City.errors.maxlength">50 max characters allowed</div>
+              <div *ngIf="City.errors.maxlength">50 maximum characters allowed</div>
             </mat-error>
           </mat-form-field>
         </div>
