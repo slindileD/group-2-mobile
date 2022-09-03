@@ -124,8 +124,8 @@ export class UpdateChildComponent implements OnInit {
       Name: [this.child.name, [Validators.required, Validators.maxLength(50), Validators.pattern('[a-zA-Z ]*')]],
       Surname: [this.child.surname, [Validators.required, Validators.maxLength(50), Validators.pattern('[a-zA-Z ]*')]],
 
-      AddressLine1: [this.child.addressLine1, Validators.required, Validators.maxLength(50)],
-      AddressLine2: [this.child.addressLine2, Validators.required, Validators.maxLength(50)],
+      AddressLine1: [this.child.addressLine1, [Validators.required, Validators.maxLength(50)]],
+      AddressLine2: [this.child.addressLine2, [Validators.required, Validators.maxLength(50)]],
       City: [this.child.city, [Validators.required, Validators.maxLength(50)]],
       ZipCode: [this.child.postalCode, [Validators.required, Validators.pattern('^[0-9]{4}$')]],
     });

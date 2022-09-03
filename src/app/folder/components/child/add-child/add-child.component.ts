@@ -20,6 +20,7 @@ export class AddChildComponent implements OnInit {
   form: FormGroup;
   submitted = false;
   application: Application;
+  maxDate:any = new Date().toISOString().slice(0, 10);
   constructor(
     private alertController: AlertController,
     private _snackBar: MatSnackBar,
@@ -28,6 +29,7 @@ export class AddChildComponent implements OnInit {
     private _applicationsService: ApplicationsService,
     private _authService: AuthService,
     private _router: Router
+    
 
   ) {
     this._getRecentApplicationFromServer();
