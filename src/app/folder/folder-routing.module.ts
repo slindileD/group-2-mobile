@@ -6,6 +6,9 @@ import { ManageBookingsComponent } from './components/bookings/manage-bookings/m
 import { AddChildComponent } from './components/child/add-child/add-child.component';
 import { UpdateChildComponent } from './components/child/update-child/update-child.component';
 import { ViewChildDetailsComponent } from './components/child/view-child-details/view-child-details.component';
+import { TakeSurveyComponent } from './components/communication/surveys/take-survey/take-survey.component';
+import { ViewSurveysComponent } from './components/communication/surveys/view-surveys/view-surveys.component';
+import { ViewCommunicationsComponent } from './components/communication/view-communications/view-communications.component';
 import { CreateProfileComponent } from './components/profile/create-profile/create-profile.component';
 import { UpdateProfileComponent } from './components/profile/update-profile/update-profile.component';
 import { ViewProfileComponent } from './components/profile/view-profile/view-profile.component';
@@ -52,7 +55,19 @@ const routes: Routes = [
   {
     path: 'list-bookings',
     component: ListBookingsComponent
-  }
+  },
+  {
+    path: 'view-communications',
+    component: ViewCommunicationsComponent
+  },
+  {
+    path: 'view-surveys',
+    component: ViewSurveysComponent
+  },
+  {
+    path: 'take-survey/:id',
+    component: TakeSurveyComponent
+  },
 ];
 
 @NgModule({

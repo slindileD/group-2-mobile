@@ -16,10 +16,18 @@ export class HomeComponent implements OnInit {
     private _router: Router,
     private _authService: AuthService,
     private _snackBar: MatSnackBar
-  ) { }
+  ) {
+
+  }
 
   ngOnInit() {
-    this._getRefreshedToken();
+
+  }
+
+  ionViewDidEnter(){
+    if (this._authService.currentUser != null) {
+      this._getRefreshedToken();
+    }
   }
 
   private _getRefreshedToken() {
@@ -40,25 +48,28 @@ export class HomeComponent implements OnInit {
 
 
   onNavigateToCreateProfile() {
-    this._getRefreshedToken();
+    if (this._authService.currentUser != null) {
+      this._getRefreshedToken();
 
-    if (this._authService.currentUser.HasProfile.toLowerCase() == 'Yes'.toLowerCase()) {
-      this._router.navigate(['folder/view-profile']); //navigate to view profile if already created
+      if (this._authService.currentUser.HasProfile.toLowerCase() == 'Yes'.toLowerCase()) {
+        this._router.navigate(['folder/view-profile']); //navigate to view profile if already created
+      }
+      else {
+        this._router.navigate(['folder/create-profile']); //create profile if not yet created
+      }
     }
-    else {
-      this._router.navigate(['folder/create-profile']); //create profile if not yet created
-    }
-
   }
 
   onNavigateToChildProfile() {
-    this._getRefreshedToken();
+    if (this._authService.currentUser != null) {
+      this._getRefreshedToken();
 
-    if (this._authService.currentUser.HasChild.toLowerCase() == 'Yes'.toLowerCase()) {
-      this._router.navigate(['folder/view-child-details']);
-    }
-    else {
-      this._router.navigate(['folder/add-child']); //add child if not yet addded
+      if (this._authService.currentUser.HasChild.toLowerCase() == 'Yes'.toLowerCase()) {
+        this._router.navigate(['folder/view-child-details']);
+      }
+      else {
+        this._router.navigate(['folder/add-child']); //add child if not yet addded
+      }
     }
 
   }
@@ -67,12 +78,15 @@ export class HomeComponent implements OnInit {
     this._router.navigate(['folder/manage-bookings']);
   }
 
+  onNavigateToViewCommunications() {
+    this._router.navigate(['folder/view-communications']);
+  }
+
   private _openSnackBar(message: string, action: string, _duration: number) {
     this._snackBar.open(message, action, {
       duration: _duration,
     });
   }
-
 
   onLogOut() {
     this._authService.signOut();

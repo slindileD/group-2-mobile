@@ -33,7 +33,7 @@
         </span>
 
         <section class="full-width">
-          <ion-button expand="full" color="secondary" type="submit">Log In</ion-button>
+          <ion-button expand="full" color="secondary" type="submit" [disabled]="buttonDisabled">{{buttonText}}</ion-button>
           <header>Forgot Password</header>
         </section>
       </form>

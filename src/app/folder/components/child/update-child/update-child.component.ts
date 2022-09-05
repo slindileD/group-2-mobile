@@ -7,7 +7,6 @@ import { AlertController } from '@ionic/angular';
 import { ApplicationsService } from 'src/app/services/api/applications/applications.service';
 import { AuthService } from 'src/app/services/api/Auth/auth.service';
 import { ChildService } from 'src/app/services/api/child/child.service';
-import { Application } from 'src/app/services/types/application.types';
 import { Child } from 'src/app/services/types/child.types';
 
 @Component({
@@ -24,7 +23,6 @@ export class UpdateChildComponent implements OnInit {
     private _snackBar: MatSnackBar,
     private _formBuilder: FormBuilder,
     private _childService: ChildService,
-    private _applicationsService: ApplicationsService,
     private _authService: AuthService,
     private _router: Router
 

@@ -7,7 +7,6 @@ import { AlertController } from '@ionic/angular';
 import { AuthService } from 'src/app/services/api/Auth/auth.service';
 import { BookingTypesService } from 'src/app/services/api/booking-types/booking-types.service';
 import { BookingService } from 'src/app/services/api/booking/booking.service';
-import { ProfileService } from 'src/app/services/api/profile/profile.service';
 import { SlotService } from 'src/app/services/api/slots/slot.service';
 import { BookingType } from 'src/app/services/types/booking-types';
 import { Profile } from 'src/app/services/types/profile.types';
@@ -84,7 +83,7 @@ export class MakeBookingComponent implements OnInit {
               }
             },
               error => {
-                this.presentServerErrorAlert(error.error.message)
+                this.presentServerErrorAlert(error.error.message);
               });
         }
       }
