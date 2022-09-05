@@ -1,0 +1,41 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Surveys</ion-title>
+
+    <ion-buttons slot="end" class="sign-out-button" (click)="onLogOut()">
+      <ion-icon size="large" name="log-out"> </ion-icon>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <ion-card *ngIf="survey !=null">
+    <ion-card-header>
+      <ion-card-title>{{survey.name}}</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-radio-group *ngFor="let question of survey.questions" >
+        <ion-list-header>
+          <ion-label>{{question.text}}</ion-label>
+        </ion-list-header>
+        <ion-item *ngFor="let answerOption of question.answerOptions">
+          <ion-label>{{answerOption.text}}</ion-label>
+          <ion-radio slot="end" color="primary" [value]="answerOption.id" (click)="onAddAnswer(answerOption)"></ion-radio>
+        </ion-item>
+      </ion-radio-group>
+
+    </ion-card-content>
+  </ion-card>
+
+
+
+  <ion-card class="buttons-inline">
+    <ion-button class="submit-button" color="secondary" type="Cancel" (click)="onNavigateToHome()">Cancel</ion-button>
+    <ion-button class="submit-button" color="primary" type="submit" (click)="onSubmit()">Submit</ion-button>
+  </ion-card>
+</ion-content>
