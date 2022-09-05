@@ -14,6 +14,8 @@ import { Booking } from 'src/app/services/types/booking.types';
 })
 export class ListBookingsComponent implements OnInit {
   bookings: Booking[] = [];
+  passedBookings: Booking[] = [];
+  upcomingBookings: Booking[] = [];
 
   constructor(
     private _authService: AuthService,
@@ -26,7 +28,6 @@ export class ListBookingsComponent implements OnInit {
   }
 
   ngOnInit() {
-
   }
 
   onLogOut() {
@@ -46,11 +47,18 @@ export class ListBookingsComponent implements OnInit {
           if (event.type == HttpEventType.Response) {
             const res = event.body as Booking[];
             this.bookings = res;
-
+            this.bookings.forEach(o=>{
+              if(o.bookingStatus == 'Passed'){
+                this.passedBookings.push(o)
+              }
+              if(o.bookingStatus == 'Upcoming'){
+                this.upcomingBookings.push(o)
+              }
+            })
           }
         },
         error: (error) => {
-
+          this.presentServerErrorAlert(error.error.message);
         },
         complete: () => {
 
@@ -58,8 +66,7 @@ export class ListBookingsComponent implements OnInit {
       });
   }
 
-  async onDeleteBooking(booking: Booking) {
-
+  onDeleteBooking(booking: Booking) {
     this._bookingService.delete(booking.id)
       .subscribe({
         next: (event) => {
@@ -67,11 +74,11 @@ export class ListBookingsComponent implements OnInit {
           }
           if (event.type == HttpEventType.Response) {
             this._openSnackBar("Booking Cancelled", "Success", 3000);
-            window.location.reload();
+            location.reload();
           }
         },
         error: (error) => {
-
+          this.presentServerErrorAlert(error.error.message);
         },
         complete: () => {
 
@@ -83,6 +90,19 @@ export class ListBookingsComponent implements OnInit {
     this._snackBar.open(message, action, {
       duration: _duration,
     });
+  }
+
+  async presentServerErrorAlert(erorMessage) {
+    const alert = await this.alertController.create({
+      cssClass: 'my-custom-class',
+      header: 'Error',
+      subHeader: '',
+      message: erorMessage,
+      buttons: ['OK']
+    });
+
+    await alert.present();
+    const { role } = await alert.onDidDismiss();
   }
 
 }

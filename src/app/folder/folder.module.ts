@@ -19,6 +19,9 @@ import { UpdateChildComponent } from './components/child/update-child/update-chi
 import { ManageBookingsComponent } from './components/bookings/manage-bookings/manage-bookings.component';
 import { MakeBookingComponent } from './components/bookings/make-booking/make-booking.component';
 import { ListBookingsComponent } from './components/bookings/list-bookings/list-bookings.component';
+import { ViewCommunicationsComponent } from './components/communication/view-communications/view-communications.component';
+import { ViewSurveysComponent } from './components/communication/surveys/view-surveys/view-surveys.component';
+import { TakeSurveyComponent } from './components/communication/surveys/take-survey/take-survey.component';
 
 @NgModule({
   imports: [
@@ -28,7 +31,7 @@ import { ListBookingsComponent } from './components/bookings/list-bookings/list-
     IonicModule,
     FolderPageRoutingModule,
     MaterialModule,
-    NgxQRCodeModule
+    NgxQRCodeModule,
   ],
   declarations: [
     FolderPage,
@@ -40,7 +43,10 @@ import { ListBookingsComponent } from './components/bookings/list-bookings/list-
     UpdateChildComponent,
     ManageBookingsComponent,
     MakeBookingComponent,
-    ListBookingsComponent
+    ListBookingsComponent,
+    ViewCommunicationsComponent,
+    ViewSurveysComponent,
+    TakeSurveyComponent
   ]
 })
 export class FolderPageModule { }

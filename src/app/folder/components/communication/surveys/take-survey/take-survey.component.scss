@@ -1,0 +1,16 @@
+@import "/src/theme/screens.scss";
+
+.info-below {
+  display: flex;
+  width: 100%;
+}
+
+.row {
+  margin-bottom: 0.5rem;
+  border-bottom: outset;
+}
+
+.take-survey-icon:hover,
+.take-survey-icon:active {
+  color: blue;
+}

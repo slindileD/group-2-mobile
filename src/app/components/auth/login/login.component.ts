@@ -17,6 +17,10 @@ export class LoginComponent implements OnInit {
 
   loading: any;
 
+  buttonText = "Log In";
+  buttonDisabled = false;
+
+
   constructor(
     private alertController: AlertController,
 
@@ -45,35 +49,38 @@ export class LoginComponent implements OnInit {
         this._authService.signIn(this.form.value)
           .subscribe(event => {
             if (event.type === HttpEventType.Sent) {
-              // this.presentLoading(true);
+              this.buttonText = "Loading...";
+              this.buttonDisabled = true;
             }
             if (event.type === HttpEventType.Response) {
-              // this.presentLoading(false);
+              this.buttonText = "Log In";
+              this.buttonDisabled = false;
               localStorage.setItem('token', event.body['token']);
               this._router.navigate(['home'])
             }
           },
             error => {
-              // this.presentLoading(false);
+              this.buttonText = "Log In";
+              this.buttonDisabled = false;
               this.presentServerErrorAlert(error.error.message)
             });
       }
     }
   }
 
-  async presentLoading(start:boolean) {
+  async presentLoading(start: boolean) {
 
     this.loading = await this._loadingCtrl.create({
       message: 'Loading ...',
     });
-    if(start){
+    if (start) {
       return await this.loading.present();
     }
-    if(start == false){
+    if (start == false) {
       return await this.loading.dismiss();
     }
 
-}
+  }
 
 
   async presentServerErrorAlert(erorMessage) {

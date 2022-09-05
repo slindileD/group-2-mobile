@@ -1,0 +1,110 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Surveys</ion-title>
+
+    <ion-buttons slot="end" class="sign-out-button" (click)="onLogOut()">
+      <ion-icon size="large" name="log-out"> </ion-icon>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <ion-card *ngIf="openSurveys.length > 0">
+    <ion-card-header>
+      <ion-card-title>Open Survyes</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-grid>
+        <ion-row *ngFor="let survey of openSurveys" class="row">
+          <ion-row>
+            <ion-col>
+              <div>{{survey.name}}</div>
+            </ion-col>
+          </ion-row>
+
+          <ion-row class="info-below">
+
+            <ion-col>
+              <div>{{survey.daysLeft}} days left before closing</div>
+            </ion-col>
+
+            <ion-col>
+              <div tooltip="take survey" (click)="onTakeSurvey(survey)">
+                <ion-icon class="take-survey-icon" name="clipboard"></ion-icon>
+              </div>
+            </ion-col>
+          </ion-row>
+
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card *ngIf="upComingSurveys.length > 0">
+    <ion-card-header>
+      <ion-card-title>Upcomming Survyes</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-grid>
+        <ion-row *ngFor="let survey of upComingSurveys" class="row">
+          <ion-row>
+            <ion-col>
+              <div>{{survey.name}}</div>
+            </ion-col>
+          </ion-row>
+          <ion-row class="info-below">
+
+            <ion-col>
+              <div>{{survey.daysBeforeOpening}} days left before opening</div>
+            </ion-col>
+          </ion-row>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card *ngIf="closedSurveys.length > 0">
+    <ion-card-header>
+      <ion-card-title>Closed Surveys</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-grid>
+        <ion-row *ngFor="let survey of closedSurveys" class="row">
+          <ion-row>
+            <ion-col>
+              <div>{{survey.name}}</div>
+            </ion-col>
+          </ion-row>
+
+          <!-- <ion-row class="booking-info-below">
+            <ion-col>
+              <div>{{booking.slotDay}}</div>
+            </ion-col>
+            <ion-col>
+              <div>{{booking.slotStartTime}} - {{booking.slotEndTime}}</div>
+            </ion-col>
+          </ion-row> -->
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+
+  </ion-card>
+
+  <ion-card *ngIf="surveys.length == 0">
+    <ion-card-header>
+      <ion-card-title>Not surveys available</ion-card-title>
+    </ion-card-header>
+  </ion-card>
+
+  <ion-card class="buttons-inline">
+    <ion-button class="submit-button" color="secondary" type="Cancel" (click)="onNavigateToHome()">Go to Home
+    </ion-button>
+  </ion-card>
+</ion-content>
