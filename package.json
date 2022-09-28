@@ -9,7 +9,8 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "deploy:github":"ng build --prod --base-href=https://slindileD/github.io/group-2-mobile/ && ngh --dir dist/group-2-mobile"
   },
   "private": true,
   "dependencies": {
@@ -25,6 +26,7 @@
     "@auth0/angular-jwt": "^5.0.2",
     "@ionic/angular": "^6.1.9",
     "@techiediaries/ngx-qrcode": "^9.1.0",
+    "angular-cli-ghpages": "^1.0.3",
     "ionic-tooltips": "^3.1.0",
     "rxjs": "~6.6.0",
     "south-african-id-validator": "^1.0.1",
