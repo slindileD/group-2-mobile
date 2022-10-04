@@ -6,9 +6,12 @@ import { ManageBookingsComponent } from './components/bookings/manage-bookings/m
 import { AddChildComponent } from './components/child/add-child/add-child.component';
 import { UpdateChildComponent } from './components/child/update-child/update-child.component';
 import { ViewChildDetailsComponent } from './components/child/view-child-details/view-child-details.component';
+import { ReadBlogComponent } from './components/communication/read-blog/read-blog.component';
 import { TakeSurveyComponent } from './components/communication/surveys/take-survey/take-survey.component';
 import { ViewSurveysComponent } from './components/communication/surveys/view-surveys/view-surveys.component';
+import { ViewBlogsComponent } from './components/communication/view-blogs/view-blogs.component';
 import { ViewCommunicationsComponent } from './components/communication/view-communications/view-communications.component';
+import { ListDocumentsComponent } from './components/documents/list-documents/list-documents.component';
 import { CreateProfileComponent } from './components/profile/create-profile/create-profile.component';
 import { UpdateProfileComponent } from './components/profile/update-profile/update-profile.component';
 import { ViewProfileComponent } from './components/profile/view-profile/view-profile.component';
@@ -61,8 +64,20 @@ const routes: Routes = [
     component: ViewCommunicationsComponent
   },
   {
+    path: 'view-blogs',
+    component: ViewBlogsComponent
+  },
+  {
+    path: 'read-blog/:id',
+    component: ReadBlogComponent
+  },
+  {
     path: 'view-surveys',
     component: ViewSurveysComponent
+  },
+  {
+    path: 'view-documents',
+    component: ListDocumentsComponent
   },
   {
     path: 'take-survey/:id',

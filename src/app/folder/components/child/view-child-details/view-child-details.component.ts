@@ -17,7 +17,7 @@ export class ViewChildDetailsComponent implements OnInit {
   elementType = NgxQrcodeElementTypes.URL;
   correctionLevel = NgxQrcodeErrorCorrectionLevels.HIGH;
 
-  urlSuffix = "http://localhost:4200/";
+  urlSuffix = "https://melodic-dasik-1ad6b8.netlify.app/";
   routingSuffix = 'capture-attendance/';
   captureAttendanceLink = this.urlSuffix.concat(this.routingSuffix);
 

@@ -24,7 +24,7 @@ export class HomeComponent implements OnInit {
 
   }
 
-  ionViewDidEnter(){
+  ionViewDidEnter() {
     if (this._authService.currentUser != null) {
       this._getRefreshedToken();
     }
@@ -80,6 +80,14 @@ export class HomeComponent implements OnInit {
 
   onNavigateToViewCommunications() {
     this._router.navigate(['folder/view-communications']);
+  }
+
+  onNavigateToBlogs() {
+    this._router.navigate(['folder/view-blogs']);
+  }
+
+  onViewDocuments() {
+    this._router.navigate(['folder/view-documents']);
   }
 
   private _openSnackBar(message: string, action: string, _duration: number) {
