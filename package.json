@@ -10,7 +10,8 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "deploy:github":"ng build --prod --base-href=https://slindileD/github.io/group-2-mobile/ && ngh --dir dist/group-2-mobile"
+    "deploy:build":"ionic build --prod -- --base-href https://slindileD.github.io/group-2-mobile/ && npx angular-cli-ghpages --dir=www",
+    "deploy:upload":""
   },
   "private": true,
   "dependencies": {
