@@ -1,0 +1,48 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>View Documents</ion-title>
+
+    <ion-buttons slot="end" class="sign-out-button" (click)="onLogOut()">
+      <ion-icon size="large" name="log-out"> </ion-icon>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <ion-card *ngIf="documents.length > 0">
+    <ion-card-content>
+      <ion-grid>
+        <ion-row *ngFor="let document of documents" class="row">
+          <ion-row>
+            <ion-col>
+              <div>{{document.description}}</div>
+            </ion-col>
+          </ion-row>
+
+          <ion-row class="info-below">
+            <ion-col>
+              <div tooltip="read blog" (click)="onDownloadRequestedPaper(document)">
+                <ion-icon class="take-survey-icon" name="download-outline"></ion-icon>
+              </div>
+            </ion-col>
+          </ion-row>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card *ngIf="documents.length == 0">
+    <ion-card-header>
+      <ion-card-title>No documents available</ion-card-title>
+    </ion-card-header>
+  </ion-card>
+
+  <ion-card class="buttons-inline">
+    <ion-button class="submit-button" color="secondary" type="Cancel" (click)="onNavigateToHome()">Go to Home
+    </ion-button>
+  </ion-card>
+</ion-content>

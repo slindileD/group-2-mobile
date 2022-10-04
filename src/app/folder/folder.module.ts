@@ -22,6 +22,9 @@ import { ListBookingsComponent } from './components/bookings/list-bookings/list-
 import { ViewCommunicationsComponent } from './components/communication/view-communications/view-communications.component';
 import { ViewSurveysComponent } from './components/communication/surveys/view-surveys/view-surveys.component';
 import { TakeSurveyComponent } from './components/communication/surveys/take-survey/take-survey.component';
+import { ViewBlogsComponent } from './components/communication/view-blogs/view-blogs.component';
+import { ReadBlogComponent } from './components/communication/read-blog/read-blog.component';
+import { ListDocumentsComponent } from './components/documents/list-documents/list-documents.component';
 
 @NgModule({
   imports: [
@@ -46,7 +49,11 @@ import { TakeSurveyComponent } from './components/communication/surveys/take-sur
     ListBookingsComponent,
     ViewCommunicationsComponent,
     ViewSurveysComponent,
-    TakeSurveyComponent
+    TakeSurveyComponent,
+    ViewBlogsComponent,
+    ReadBlogComponent,
+    ListDocumentsComponent,
+
   ]
 })
 export class FolderPageModule { }

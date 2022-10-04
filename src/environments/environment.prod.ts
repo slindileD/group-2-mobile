@@ -1,5 +1,4 @@
 export const environment = {
   production: true,
-  endpointBase: ""
-
+  endpointBase: "https://hatfield-montessori.azurewebsites.net/api/"
 };

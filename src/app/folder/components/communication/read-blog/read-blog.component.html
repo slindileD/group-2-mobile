@@ -1,0 +1,31 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Read Blog</ion-title>
+
+    <ion-buttons slot="end" class="sign-out-button" (click)="onLogOut()">
+      <ion-icon size="large" name="log-out"> </ion-icon>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <ion-card *ngIf="blog !=null">
+    <ion-card-header>
+      <ion-card-title>{{blog.title}}</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <div class="body-container">
+        <div class="body-paragraph" [innerHTML]="blog.message"></div>
+      </div>
+    </ion-card-content>
+  </ion-card>
+  <ion-card class="buttons-inline">
+    <ion-button class="submit-button" color="secondary" type="Cancel" (click)="onNavigateToHome()">Go to Home
+    </ion-button>
+  </ion-card>
+</ion-content>

@@ -2,7 +2,7 @@
   <ion-toolbar>
     <ion-title>HOME</ion-title>
     <ion-buttons slot="end" class="sign-out-button" (click)="onLogOut()">
-    <ion-icon size="large" name="log-out"   > </ion-icon>
+      <ion-icon size="large" name="log-out"> </ion-icon>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
@@ -32,45 +32,23 @@
 
       <ion-row>
         <ion-col>
-          <ion-card (click)="onNavigateToManageBookings()">
-            <img src="assets/icons/booking.png" />
-            <ion-card-header>
-              <ion-card-title>Bookings</ion-card-title>
-            </ion-card-header>
-          </ion-card>
-        </ion-col>
-
-        <ion-col>
           <ion-card>
-            <img src="assets/icons/profile.png" />
+            <img src="assets/icons/booking.png" />
             <ion-card-header>
               <ion-card-title>Activities</ion-card-title>
             </ion-card-header>
           </ion-card>
         </ion-col>
-      </ion-row>
 
-
-      <ion-row>
         <ion-col>
           <ion-card>
-            <img src="assets/icons/profile.png" />
+            <img src="assets/icons/booking.png" />
             <ion-card-header>
-              <ion-card-title>Blog</ion-card-title>
-            </ion-card-header>
-          </ion-card>
-        </ion-col>
-
-        <ion-col>
-          <ion-card >
-            <img src="assets/icons/profile.png" />
-            <ion-card-header>
-              <ion-card-title>Schedule</ion-card-title>
+              <ion-card-title>Events</ion-card-title>
             </ion-card-header>
           </ion-card>
         </ion-col>
       </ion-row>
-
 
       <ion-row>
         <ion-col>
@@ -84,14 +62,33 @@
 
         <ion-col>
           <ion-card>
-            <img src="assets/icons/profile.png" />
+            <img src="assets/icons/info.png" (click)="onNavigateToBlogs()" />
             <ion-card-header>
-              <ion-card-title>Guide</ion-card-title>
+              <ion-card-title>Blog</ion-card-title>
             </ion-card-header>
           </ion-card>
         </ion-col>
       </ion-row>
 
+      <ion-row>
+        <ion-col>
+          <ion-card (click)="onNavigateToManageBookings()">
+            <img src="assets/icons/booking.png" />
+            <ion-card-header>
+              <ion-card-title>Bookings</ion-card-title>
+            </ion-card-header>
+          </ion-card>
+        </ion-col>
+
+        <ion-col>
+          <ion-card (click)="onViewDocuments()">
+            <img src="assets/icons/files.png" />
+            <ion-card-header>
+              <ion-card-title>Documents</ion-card-title>
+            </ion-card-header>
+          </ion-card>
+        </ion-col>
+      </ion-row>
 
     </ion-grid>
   </div>

@@ -26,7 +26,7 @@ export class AuthService {
 
   signIn(payload) {
     return this.http
-      .post(this.endpointBase.concat("Account/LogIn"), payload, { reportProgress: true, observe: 'events' });
+      .post(this.endpointBase.concat("Account/LogIn/Parent"), payload, { reportProgress: true, observe: 'events' });
   }
 
   refreshToken() {
